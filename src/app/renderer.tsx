@@ -30,14 +30,18 @@ import './index.css';
 import 'inter-ui/inter.css';
 
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import { Terminal } from '../components/Terminal';
-import { store } from './store';
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: 'http://localhost:4000/graphql',
+});
 
 const root = createRoot( document.getElementById( 'root' ) );
 root.render(
-  <Provider store={ store }>
+  <ApolloProvider client={ client }>
     <Terminal />
-  </Provider>
+  </ApolloProvider>
 );
