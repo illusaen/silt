@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { motion } from 'framer-motion';
 
 import { faBolt, faVial } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,22 +16,21 @@ enum Direction {
 }
 
 const Resource = ( { resourceType, value, maxValue }: { resourceType: ResourceType, value: number, maxValue: number } ) => {
-  const backgroundColor = (): string => {
-    switch ( resourceType ) {
-      case ResourceType.HP: return 'bg-red-400';
-      case ResourceType.MP: return 'bg-sky-400';
-      case ResourceType.SP: return 'bg-amber-400';
-      default: return 'bg-gray-400';
-    }
+  const BAR_CONSTANTS = {
+    [ ResourceType.HP ]: { backgroundColor: 'bg-red-500', barColor: 'bg-red-400', width: '', height: 'grow', placement: '', rounded: 'rounded-md' },
+    [ ResourceType.MP ]: { backgroundColor: 'bg-sky-500', barColor: 'bg-sky-400', width: 'w-[52%]', height: 'h-[10%]', placement: 'self-end', rounded: 'rounded-sm' },
+    [ ResourceType.SP ]: { backgroundColor: 'bg-amber-500', barColor: 'bg-amber-400', width: 'w-[52%]', height: 'h-[10%]', placement: '', rounded: 'rounded-sm' },
   };
 
-  const width = resourceType === ResourceType.HP ? '' : 'w-[52%]';
-  const height = resourceType === ResourceType.HP ? 'grow' : 'h-[10%]';
-  const placement = resourceType === ResourceType.MP ? 'self-end' : '';
-  const rounded = resourceType === ResourceType.HP ? 'rounded-md' : 'rounded-sm';
-
+  const percent = ( value / maxValue * 100 ) - 100;
+  const barData = BAR_CONSTANTS[ resourceType ];
   return (
-    <div className={ `${backgroundColor()} ${width} ${height} ${placement} ${rounded}` }>
+    <div className={ `${barData.backgroundColor} ${barData.width} ${barData.height} ${barData.placement} ${barData.rounded} overflow-hidden` }>
+      <motion.div
+        className={ `h-full ${barData.rounded} ${barData.barColor}` }
+        animate={ { transform: `translateX(${percent}%)` } }
+        initial={ { transform: 'translateX(-100%)' } }
+      />
     </div>
   );
 };
