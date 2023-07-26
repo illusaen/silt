@@ -57,7 +57,7 @@ export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen:
 
 export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: boolean, sidebarHasOpened?: Function } ) => {
   return (
-    <nav className={ `flex-col space-y-16 ${isNarrow ? 'showHeaderBreakpoint:w-20 p-7 hidden showHeaderBreakpoint:flex' : 'w-fit py-28 px-16 flex'} flex-initial items-center bg-uiBackgroundDark text-textDark text-sm font-bold` }>
+    <nav className={ `flex-col space-y-16 ${isNarrow ? 'showHeaderBreakpoint:w-20 p-7 hidden showHeaderBreakpoint:flex bg-text/50' : 'w-fit py-28 px-16 flex bg-uiBackground'} flex-initial items-center drop-shadow-md shadow-textDark/20 text-textDark text-sm font-bold` }>
 
       { isNarrow && sidebarHasOpened !== null &&
         <div className='flex justify-center'>
@@ -72,7 +72,7 @@ export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: bool
               <a
                 href={ navItem.href }
                 target={ navItem.target }
-                className={ `group flex gap-x-4 rounded-lg p-2 hover:bg-blue items-center my-0.5 ${isNarrow ? 'justify-center' : ''}` }
+                className={ `group flex gap-x-4 rounded-lg p-2 hover:bg-blue items-center my-0.5 ${isNarrow ? 'justify-center hover:ring-2 hover:ring-textDark hover:ring-inset ' : ''}` }
               >
                 <FontAwesomeIcon icon={ navItem.icon }
                   className='h-7 w-7'
@@ -99,7 +99,7 @@ export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: bool
               >
                 <span
                   className={ classNames(
-                    profile.current ? 'bg-uiAccentDark' : '',
+                    profile.current ? ( isNarrow && 'bg-uiAccent/50' || 'bg-uiAccentDark' ) : '',
                     'flex h-8 w-8 justify-center items-center rounded-lg border-2 text-[0.8rem]'
                   ) }
                 >

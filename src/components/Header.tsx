@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export const HeaderBarButton = ( { onSidebar = false, sidebarHasOpened }: { onSidebar?: boolean, sidebarHasOpened: Function } ) => 
-  <button className={ `-m-2.5 p-2.5 rounded-lg ${onSidebar ? 'hover:bg-blue' : ''}` } onClick={ () => sidebarHasOpened() }>
+  <button className={ `-m-2.5 p-2.5 rounded-lg ${onSidebar ? 'hover:bg-blue hover:ring-2 hover:ring-textDark hover:ring-inset ' : ''}` } onClick={ () => sidebarHasOpened() }>
     <span className='sr-only'>Open sidebar</span>
     <FontAwesomeIcon icon={ faBars } className={ onSidebar ? 'h-7 w-7 text-uiAccent/70' : 'h-5 w-5' } />
   </button>;
