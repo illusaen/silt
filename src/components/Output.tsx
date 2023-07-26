@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const outputs = Array.from( Array(100).keys() ).map( x => `test ${(x+1).toString()}` );
+const outputs = Array.from( Array(30).keys() ).map( x => `test ${(x+1).toString()}` );
 
 export const Output = () => {
   const showTimestamps = false;
@@ -13,7 +13,7 @@ export const Output = () => {
   }, [] );
 
   return (
-    <div className='bg-uiBackgroundDark rounded-t-md shadow-xl text-text grow p-4 overflow-y-scroll break-words' ref={ divRef }>
+    <div className='bg-uiBackgroundDark rounded-t-md shadow-xl text-text grow p-4 overflow-y-scroll break-words w-full' ref={ divRef }>
       <table>
         <tbody>
           { 

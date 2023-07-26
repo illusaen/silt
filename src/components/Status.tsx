@@ -14,7 +14,7 @@ export const Status = () => {
   const health = 100;
   const healthMax = 200;
   const mana = 100;
-  const manaMax = 100;
+  const manaMax = 1000;
   const stamina = 100;
   const staminaMax = 150;
   const exp = 1000;

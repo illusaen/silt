@@ -15,9 +15,9 @@ export const enum Direction {
 
 export const Resource = ( { resourceType, value, maxValue }: { resourceType: ResourceType, value: number, maxValue: number } ) => {
   const BAR_CONSTANTS = {
-    [ ResourceType.HP ]: { backgroundColor: 'bg-red', barColor: 'bg-red', width: '', height: 'grow', placement: '', rounded: 'rounded-md' },
-    [ ResourceType.MP ]: { backgroundColor: 'bg-blue', barColor: 'bg-blue', width: 'w-[52%]', height: 'h-[10%]', placement: 'self-end', rounded: 'rounded-sm' },
-    [ ResourceType.SP ]: { backgroundColor: 'bg-yellow', barColor: 'bg-yellow', width: 'w-[52%]', height: 'h-[10%]', placement: '', rounded: 'rounded-sm' },
+    [ ResourceType.HP ]: { backgroundColor: 'bg-redDark/50', barColor: 'bg-red', width: '', height: 'grow', placement: '', rounded: 'rounded-md' },
+    [ ResourceType.MP ]: { backgroundColor: 'bg-blueDark/50', barColor: 'bg-blue', width: 'w-[52%]', height: 'h-[10%]', placement: 'self-end', rounded: 'rounded-sm' },
+    [ ResourceType.SP ]: { backgroundColor: 'bg-yellowDark/50', barColor: 'bg-yellow', width: 'w-[52%]', height: 'h-[10%]', placement: '', rounded: 'rounded-sm' },
   };
 
   const percent = ( value / maxValue * 100 ) - 100;

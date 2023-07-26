@@ -18,7 +18,7 @@ module.exports = {
       greenDark: '#98971a',
       yellow: '#fabd2f',
       yellowDark: '#d79921',
-      blue: '#83a598',
+      blue: '#78bfbf',
       blueDark: '#458588',
       magenta: '#d3869b',
       magentaDark: '#b16286',
@@ -38,6 +38,9 @@ module.exports = {
       textDark: '#677e81',
     },
     extend: {
+      screens: {
+        showSidebarBreakpoint: '960px'
+      },
       fontFamily: {
         'sans': [ 'Inter var', ...defaultTheme.fontFamily.sans ],
       }
