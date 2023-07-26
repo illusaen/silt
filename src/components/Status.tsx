@@ -21,14 +21,15 @@ export const Status = () => {
   const expToLevel = 1500;
   const questTimer = 10;
   const questTimerMax = 30;
-  const questMob = 'quest mob name';
+  const questMob: string = 'quest mob name';
+  const questRoom = 'quest room';
   const questArea = 'quest area';
   const potions = 300;
   const level = 150;
 
   return (
     <div className='bg-gray-900 shadow-lg flex flex-row p-4 justify-center align-middle space-x-2 text-green-100 font-bold font-mono text-sm'>
-      <ProgressCircle value={ questTimer } maxValue={ questTimerMax } color={ 'border-green-600' } icon={ faVial } text={ potions } rotation={ -45 } />
+      <ProgressCircle value={ questTimer } maxValue={ questTimerMax } color={ 'border-green-600' } icon={ faVial } text={ potions } rotation={ -45 } alwaysFull={ questMob !== '' } />
       <div className='flex flex-col justify-center space-y-1 min-w-[50%] my-3 relative'>
         <HealthText health={ health } healthMax={ healthMax } />
         <Resource resourceType={ ResourceType.MP } value={ mana } maxValue={ manaMax } />
