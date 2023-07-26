@@ -32,8 +32,7 @@ import 'inter-ui/inter.css';
 import { createRoot } from 'react-dom/client';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-import { Terminal } from '../components/Terminal';
-import { SideInfo } from '../components/SideInfo';
+import { App } from '../components/App';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -43,9 +42,6 @@ const client = new ApolloClient({
 const root = createRoot( document.getElementById( 'root' ) );
 root.render(
   <ApolloProvider client={ client }>
-    <div className='h-screen w-screen flex flex-row'>
-      <Terminal />
-      <SideInfo />
-    </div>
+    <App />
   </ApolloProvider>
 );
