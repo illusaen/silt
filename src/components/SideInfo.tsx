@@ -27,7 +27,7 @@ export const SideInfo = () => {
   };
 
   return (
-    <aside className='flex w-[320px] border-l-2 border-uiForegroundDark p-4'>
+    <aside className='w-[320px] border-l-2 border-uiForegroundDark p-4 hidden showSidebarBreakpoint:flex'>
       <div className='flex-col w-full bg-uiBackgroundDark rounded-md shadow-xl'>
 
         { /* Map */ }
