@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  #root > * {
+  #root > div > * {
     -webkit-app-region: no-drag;
   }
 

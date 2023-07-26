@@ -27,7 +27,8 @@ module.exports = {
 
       uiBackground: '#282828',
       uiBackgroundDark: '#1d2021',
-      uiForeground: '#efefef',
+      uiForeground: '#cdcdcd',
+      uiForegroundDark: '#bcbcbc',
       uiAccent: '#928374',
       uiAccentDark: '#3c3836',
       uiWarning: '#fabd2f',

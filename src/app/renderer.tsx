@@ -33,6 +33,7 @@ import { createRoot } from 'react-dom/client';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import { Terminal } from '../components/Terminal';
+import { SideInfo } from '../components/SideInfo';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -42,6 +43,9 @@ const client = new ApolloClient({
 const root = createRoot( document.getElementById( 'root' ) );
 root.render(
   <ApolloProvider client={ client }>
-    <Terminal />
+    <div className='h-screen w-screen flex'>
+      <Terminal />
+      <SideInfo />
+    </div>
   </ApolloProvider>
 );

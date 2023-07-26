@@ -28,7 +28,7 @@ export const Status = () => {
   const level = 150;
 
   return (
-    <div className='bg-uiBackgroundDark shadow-lg flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark'>
+    <div className='bg-uiBackgroundDark shadow-xl flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark'>
       <ProgressCircle value={ questTimer } maxValue={ questTimerMax } color={ 'border-green' } icon={ faVial } text={ potions } rotation={ -45 } alwaysFull={ questMob !== '' } />
       <div className='flex flex-col justify-center space-y-1 min-w-[50%] my-3 relative'>
         <HealthText health={ health } healthMax={ healthMax } />
