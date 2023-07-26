@@ -3,7 +3,7 @@ import { Configuration } from 'webpack';
 import { rules } from "./webpack.rules";
 
 export const utilityConfig: Configuration = {
-  entry: "./src/graphql/server.ts", // Change to your own entry point
+  entry: "./src/app/server.ts", // Change to your own entry point
   target: "node",
   module: {
     rules,
