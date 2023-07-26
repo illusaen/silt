@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Game', href: '#', icon: faDisplay },
   { name: 'Settings', href: '#', icon: faGear },
   { name: 'Debug', href: '#', icon: faCode },
-  { name: 'Apollo', href: '#', icon: faDatabase },
+  { name: 'Apollo', href: 'http://localhost:4000', target: '_blank', icon: faDatabase },
 ];
 
 const profiles = [
@@ -23,27 +23,27 @@ const classNames = ( ...classes: string[] ) => classes.join( ' ' );
 export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen: boolean, sidebarHasClosed: Function } ) => {
   return (
     <Transition.Root show={ sidebarOpen }>
-      <Dialog as="div" className="relative z-100" onClose={ () => sidebarHasClosed() }>
+      <Dialog as='div' className='relative z-100' onClose={ () => sidebarHasClosed() }>
         <Transition.Child
-          enter="transition-opacity ease-linear duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity ease-linear duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter='transition-opacity ease-linear duration-300'
+          enterFrom='opacity-0'
+          enterTo='opacity-100'
+          leave='transition-opacity ease-linear duration-300'
+          leaveFrom='opacity-100'
+          leaveTo='opacity-0'
         >
-          <div className="fixed inset-0 bg-uiBackgroundDark/80" />
+          <div className='fixed inset-0 bg-uiBackgroundDark/80' />
         </Transition.Child>
 
-        <div className="fixed inset-0 flex">
+        <div className='fixed inset-0 flex'>
           <Transition.Child
             as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
+            enter='transition ease-in-out duration-300 transform'
+            enterFrom='-translate-x-full'
+            enterTo='translate-x-0'
+            leave='transition ease-in-out duration-300 transform'
+            leaveFrom='translate-x-0'
+            leaveTo='-translate-x-full'
           >
             <Dialog.Panel className='flex max-w-fit'>
               <Sidebar isNarrow={ false } />
@@ -57,7 +57,7 @@ export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen:
 
 export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: boolean, sidebarHasOpened?: Function } ) => {
   return (
-    <nav className={ `flex-col space-y-16 ${isNarrow ? 'lg:w-20 p-4 hidden lg:flex' : 'w-fit py-28 px-16 flex'} flex-initial items-center bg-uiBackgroundDark text-textDark text-sm font-bold` }>
+    <nav className={ `flex-col space-y-16 ${isNarrow ? 'showHeaderBreakpoint:w-20 p-7 hidden showHeaderBreakpoint:flex' : 'w-fit py-28 px-16 flex'} flex-initial items-center bg-uiBackgroundDark text-textDark text-sm font-bold` }>
 
       { isNarrow && sidebarHasOpened !== null &&
         <div className='flex justify-center'>
@@ -71,6 +71,7 @@ export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: bool
             <li key={ navItem.name }>
               <a
                 href={ navItem.href }
+                target={ navItem.target }
                 className={ `group flex gap-x-4 rounded-lg p-2 hover:bg-blue items-center my-0.5 ${isNarrow ? 'justify-center' : ''}` }
               >
                 <FontAwesomeIcon icon={ navItem.icon }
@@ -85,7 +86,7 @@ export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: bool
       </div>
 
       <div className='flex-col grow'>
-        { !isNarrow && <div className='text-xs px-2 pb-1'>Profiles</div> }
+        { !isNarrow && <div className='text-xs px-2 pb-1'>Open Profiles</div> }
         <ul role='list'>
           { profiles.map( profile => (
             <li key={ profile.name }>

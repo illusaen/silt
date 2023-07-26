@@ -9,7 +9,7 @@ export const HeaderBarButton = ( { onSidebar = false, sidebarHasOpened }: { onSi
 
 export const Header = ( { sidebarHasOpened }: { sidebarHasOpened: Function } ) => {
   return (
-    <div className='flex p-4 gap-6 bg-text/50 shadow-md shadow-textDark/20 lg:hidden text-textDark align-middle'>
+    <div className='flex p-4 gap-6 bg-text/50 shadow-md shadow-textDark/20 showHeaderBreakpoint:hidden text-textDark align-middle'>
       <HeaderBarButton sidebarHasOpened={ sidebarHasOpened } />
       <div className='text-sm font-bold'>Silt</div>
     </div>

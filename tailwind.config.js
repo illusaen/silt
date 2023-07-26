@@ -39,7 +39,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        showSidebarBreakpoint: '960px'
+        showSidebarBreakpoint: '960px',
+        showHeaderBreakpoint: '1100px'
       },
       fontFamily: {
         'sans': [ 'Inter var', ...defaultTheme.fontFamily.sans ],
