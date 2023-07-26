@@ -21,7 +21,7 @@ export const Status = () => {
   const expToLevel = 1500;
   const questTimer = 10;
   const questTimerMax = 30;
-  const questMob: string = 'quest mob name';
+  const questMob = 'quest mob name';
   const questRoom = 'quest room';
   const questArea = 'quest area';
   const potions = 300;

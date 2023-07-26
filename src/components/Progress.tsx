@@ -6,7 +6,7 @@ export const enum ResourceType {
   HP,
   MP,
   SP
-};
+}
 
 export const enum Direction {
   LEFT,
