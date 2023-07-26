@@ -27,6 +27,8 @@ const createWindow = (): void => {
     height: mainWindowState.height,
     x: mainWindowState.x,
     y: mainWindowState.y,
+    minWidth: 800,
+    minHeight: 800,
     frame: false,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,

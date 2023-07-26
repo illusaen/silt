@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const outputs = Array.from( Array(30).keys() ).map( x => `test ${(x+1).toString()}` );
+const outputs = Array.from( Array(20).keys() ).map( x => `test ${(x+1).toString()}` );
 
 export const Output = () => {
   const showTimestamps = false;

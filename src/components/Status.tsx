@@ -27,16 +27,33 @@ export const Status = () => {
   const potions = 300;
   const level = 150;
 
+  const questOnCooldown = questMob === '' || !questMob;
+
   return (
     <div className='bg-uiBackgroundDark shadow-xl flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark'>
-      <ProgressCircle value={ questTimer } maxValue={ questTimerMax } color={ 'border-green' } icon={ faVial } text={ potions } rotation={ -45 } alwaysFull={ questMob !== '' } />
+      <ProgressCircle
+        value={ questTimer }
+        maxValue={ questTimerMax }
+        resourceType={ ResourceType.QUEST }
+        icon={ faVial }
+        text={ potions }
+        rotation={ -45 }
+        alwaysFull={ !questOnCooldown }
+      />
       <div className='flex flex-col justify-center space-y-1 min-w-[50%] my-3 relative'>
         <HealthText health={ health } healthMax={ healthMax } />
         <Resource resourceType={ ResourceType.MP } value={ mana } maxValue={ manaMax } />
         <Resource resourceType={ ResourceType.HP } value={ health } maxValue={ healthMax } />
         <Resource resourceType={ ResourceType.SP } value={ stamina } maxValue={ staminaMax } />
       </div>
-      <ProgressCircle value={ exp } maxValue={ expToLevel } color={ 'border-green' } icon={ faBolt } text={ level } direction={ Direction.RIGHT } />
+      <ProgressCircle
+        value={ exp }
+        maxValue={ expToLevel }
+        resourceType={ ResourceType.EXP }
+        icon={ faBolt }
+        text={ level }
+        direction={ Direction.RIGHT }
+      />
     </div>
   );
 };

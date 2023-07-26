@@ -11,7 +11,7 @@ export const App = () => {
 
   return (
     <div className='w-full flex flex-col'>
-      <SidebarDialog sidebarOpen={ sidebarOpen } sidebarHasClosed={ () => { console.log('sidebarhasclosed'); setSidebarOpen( false ) } } />
+      <SidebarDialog sidebarOpen={ sidebarOpen } sidebarHasClosed={ () => setSidebarOpen( false ) } />
       <Header sidebarHasOpened={ sidebarHasOpened } />
       <div className='flex flex-row grow'>
         <Sidebar isNarrow={ true } sidebarHasOpened={ sidebarHasOpened } />
