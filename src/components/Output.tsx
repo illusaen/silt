@@ -13,7 +13,7 @@ export const Output = () => {
   }, [] );
 
   return (
-    <div className='bg-gray-900 rounded-t-md shadow-xl text-sky-100 grow p-4 overflow-y-scroll break-words' ref={ divRef }>
+    <div className='bg-uiBackgroundDark rounded-t-md shadow-xl text-text grow p-4 overflow-y-scroll break-words' ref={ divRef }>
       <table>
         <tbody>
           { 

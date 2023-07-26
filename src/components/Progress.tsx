@@ -15,9 +15,9 @@ export const enum Direction {
 
 export const Resource = ( { resourceType, value, maxValue }: { resourceType: ResourceType, value: number, maxValue: number } ) => {
   const BAR_CONSTANTS = {
-    [ ResourceType.HP ]: { backgroundColor: 'bg-red-500', barColor: 'bg-red-400', width: '', height: 'grow', placement: '', rounded: 'rounded-md' },
-    [ ResourceType.MP ]: { backgroundColor: 'bg-sky-500', barColor: 'bg-sky-400', width: 'w-[52%]', height: 'h-[10%]', placement: 'self-end', rounded: 'rounded-sm' },
-    [ ResourceType.SP ]: { backgroundColor: 'bg-amber-500', barColor: 'bg-amber-400', width: 'w-[52%]', height: 'h-[10%]', placement: '', rounded: 'rounded-sm' },
+    [ ResourceType.HP ]: { backgroundColor: 'bg-red', barColor: 'bg-red', width: '', height: 'grow', placement: '', rounded: 'rounded-md' },
+    [ ResourceType.MP ]: { backgroundColor: 'bg-blue', barColor: 'bg-blue', width: 'w-[52%]', height: 'h-[10%]', placement: 'self-end', rounded: 'rounded-sm' },
+    [ ResourceType.SP ]: { backgroundColor: 'bg-yellow', barColor: 'bg-yellow', width: 'w-[52%]', height: 'h-[10%]', placement: '', rounded: 'rounded-sm' },
   };
 
   const percent = ( value / maxValue * 100 ) - 100;
@@ -56,8 +56,8 @@ export const ProgressCircle = ( {
 
   return (
     <div className={ `rounded-full bg-transparent h-16 w-16 ${color} border-[6px] flex justify-center items-center self-center` }>
-      <div className={ `flex ${dir} items-center text-sky-800`}>
-        <p className='text-green-100 text-xs'>{ text.toString() }</p>
+      <div className={ `flex ${dir} items-center text-textDark`}>
+        <p className='text-xs'>{ text.toString() }</p>
         <FontAwesomeIcon icon={ icon } transform={ { rotate: rotation } } />
       </div>
     </div>
