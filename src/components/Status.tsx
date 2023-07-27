@@ -22,12 +22,12 @@ export const Status = () => {
   const questTimer = 10;
   const questTimerMax = 30;
   const questMob = 'quest mob name';
-  const questRoom = 'quest room';
-  const questArea = 'quest area';
+  // const questRoom = 'quest room';
+  // const questArea = 'quest area';
   const potions = 300;
   const level = 150;
 
-  const questOnCooldown = questMob === '' || !questMob;
+  const questOnCooldown = questMob && true;
 
   return (
     <div className='bg-uiBackgroundDark shadow-xl flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark'>

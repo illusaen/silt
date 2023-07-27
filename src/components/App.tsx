@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Terminal } from '../components/Terminal';
-import { SideInfo } from '../components/SideInfo';
-import { Sidebar, SidebarDialog } from '../components/Sidebar';
-import { Header } from '../components/Header';
+import { Terminal } from './Terminal';
+import { SideInfo } from './SideInfo';
+import { Sidebar, SidebarDialog } from './Sidebar';
+import { Header } from './Header';
 
 export const App = () => {
   const [ sidebarOpen, setSidebarOpen ] = useState( false );

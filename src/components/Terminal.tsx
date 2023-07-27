@@ -1,6 +1,6 @@
-import { Output } from '../components/Output';
-import { Status } from '../components/Status';
-import { Input } from '../components/Input';
+import { Output } from './Output';
+import { Status } from './Status';
+import { Input } from './Input';
 
 export const Terminal = () =>
   <div className='flex flex-col grow m-4'>

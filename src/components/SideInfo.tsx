@@ -1,7 +1,5 @@
 import { Map } from './Map';
 
-type MobDataType = { name: string, position: string };
-
 const TableRow = ( { label }: { label: string } ) => {
   return (
     <tr className='text-text'>
@@ -25,6 +23,8 @@ export const SideInfo = () => {
     cooldown: 30,
     mobs: [ { name: 'bustard', position: 'Hoard' }, { name: 'Demonic fox', position: 'Ragnatittu' } ]
   };
+  const title = `${campaign.isGquest ? 'Global Quest' : 'Campaign'} - ${campaign.cooldown} min`;
+  const items = campaign.mobs.map( mob => `${ mob.name } - ${ mob.position }` );
 
   return (
     <aside className='w-[320px] border-l-2 border-uiForegroundDark p-4 hidden showSidebarBreakpoint:flex'>
@@ -34,17 +34,17 @@ export const SideInfo = () => {
         <div className='justify-center text-text text-center font-mono p-4'>
           <Map />
           <p className='text-sm'>{ roomName }</p>
-          <p className='text-xs text-textDark'>{ roomArea }</p>
+          <p className='text-xs text-textDark font-bold'>{ roomArea }</p>
         </div>
 
-        { /* Campaign */ }
+        { /* Info */ }
         <div className='p-4 justify-center border-t border-uiAccentDark'>
           <table className='w-full'>
             <thead>
-              <tr><th><p className='text-sm text-text text-center'>{ `${campaign.isGquest ? 'Global Quest' : 'Campaign'} - ${campaign.cooldown} min` }</p></th></tr>
+              <tr><th><p className='text-xs text-textDark text-center'>{ title }</p></th></tr>
             </thead>
             <tbody>
-              { campaign.mobs.map( ( mob, number ) => <TableRow label={ `${mob.name} - ${mob.position}` } key={ number.toString() } /> ) }
+              { items.map( ( item, number ) => <TableRow label={ item } key={ number.toString() } /> ) }
             </tbody>
           </table>
         </div>

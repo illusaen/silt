@@ -20,7 +20,7 @@ const profiles = [
 
 const classNames = ( ...classes: string[] ) => classes.join( ' ' );
 
-export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen: boolean, sidebarHasClosed: Function } ) => {
+export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen: boolean, sidebarHasClosed: () => void } ) => {
   return (
     <Transition.Root show={ sidebarOpen }>
       <Dialog as='div' className='relative z-100' onClose={ () => sidebarHasClosed() }>
@@ -55,7 +55,7 @@ export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: { sidebarOpen:
   );
 };
 
-export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: boolean, sidebarHasOpened?: Function } ) => {
+export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: { isNarrow: boolean, sidebarHasOpened?: () => void } ) => {
   return (
     <nav className={ `flex-col space-y-16 ${isNarrow ? 'showHeaderBreakpoint:w-20 p-7 hidden showHeaderBreakpoint:flex bg-text/50' : 'w-fit py-28 px-16 flex bg-uiBackground'} flex-initial items-center drop-shadow-md shadow-textDark/20 text-textDark text-sm font-bold` }>
 
