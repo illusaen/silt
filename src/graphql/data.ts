@@ -1,10 +1,9 @@
-export const bookData = [
+export const potionData = [
   {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
+    id: 1234,
+    name: 'hpot',
+    longName: 'a magical potion',
+    type: 'POTION',
+    resource: 'HEALTH',
   },
 ];

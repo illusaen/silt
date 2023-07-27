@@ -1,7 +1,7 @@
-import { bookData } from './data';
+import { potionData } from './data';
 
 export const resolvers = {
   Query: {
-    books: () => bookData,
-  },
+    potions: () => potionData,
+  }
 };
