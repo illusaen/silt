@@ -1,4 +1,4 @@
-import { potionData } from './data';
+import { potionData } from './';
 
 export const resolvers = {
   Query: {

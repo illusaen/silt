@@ -1,14 +1,14 @@
 import { faBolt, faVial } from '@fortawesome/free-solid-svg-icons';
 
-import { Direction, ProgressCircle, Resource, ResourceType } from './Progress';
+import { Direction, ProgressCircle, Resource, ResourceType } from './';
 
-const HealthText = ( { health, healthMax }: { health: number, healthMax: number } ) => 
-  <p className='italic absolute -top-3'>
-    <span className='font-sans text-lg'>{ health }</span>
-    <span className='text-xs text-uiAccent align-[1px] ml-0.5'>{ '(' }</span>
-    <span className='text-xs text-uiAccent align-[1px]'>{ healthMax }</span>
-    <span className='text-xs text-uiAccent align-[1px]'>{ ')' }</span>
-  </p>
+const HealthText = ( { health, healthMax }: { health: number, healthMax: number } ) =>
+  <p className="italic absolute -top-3">
+    <span className="font-sans text-lg">{ health }</span>
+    <span className="text-xs text-uiAccent align-[1px] ml-0.5">{ '(' }</span>
+    <span className="text-xs text-uiAccent align-[1px]">{ healthMax }</span>
+    <span className="text-xs text-uiAccent align-[1px]">{ ')' }</span>
+  </p>;
 
 export const Status = () => {
   const health = 100;
@@ -30,7 +30,8 @@ export const Status = () => {
   const questOnCooldown = questMob && true;
 
   return (
-    <div className='bg-uiBackgroundDark shadow-xl flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark'>
+    <div
+      className="bg-uiBackgroundDark shadow-xl flex flex-row p-4 justify-center align-middle space-x-2 text-text font-bold font-mono text-sm border-y border-y-uiAccentDark">
       <ProgressCircle
         value={ questTimer }
         maxValue={ questTimerMax }
@@ -40,11 +41,11 @@ export const Status = () => {
         rotation={ -45 }
         alwaysFull={ !questOnCooldown }
       />
-      <div className='flex flex-col justify-center space-y-1 min-w-[50%] my-3 relative'>
-        <HealthText health={ health } healthMax={ healthMax } />
-        <Resource resourceType={ ResourceType.MP } value={ mana } maxValue={ manaMax } />
-        <Resource resourceType={ ResourceType.HP } value={ health } maxValue={ healthMax } />
-        <Resource resourceType={ ResourceType.SP } value={ stamina } maxValue={ staminaMax } />
+      <div className="flex flex-col justify-center space-y-1 min-w-[50%] my-3 relative">
+        <HealthText health={ health } healthMax={ healthMax }/>
+        <Resource resourceType={ ResourceType.MP } value={ mana } maxValue={ manaMax }/>
+        <Resource resourceType={ ResourceType.HP } value={ health } maxValue={ healthMax }/>
+        <Resource resourceType={ ResourceType.SP } value={ stamina } maxValue={ staminaMax }/>
       </div>
       <ProgressCircle
         value={ exp }
