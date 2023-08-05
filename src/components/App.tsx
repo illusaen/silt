@@ -2,13 +2,14 @@ import { ApolloClient, ApolloProvider, InMemoryCache, NormalizedCacheObject } fr
 import { CachePersistor, LocalStorageWrapper } from 'apollo3-cache-persist';
 import { ComponentType, useEffect, useState } from 'react';
 import { Header, Input, Output, Status, Sidebar, SidebarDialog, SideInfo, Loading } from './';
+import { cacheConfig } from '../graphql';
 
 export const withApollo = ( Component: ComponentType, debug = false ) => () => {
   const [ client, setClient ] = useState<ApolloClient<NormalizedCacheObject>>();
 
   useEffect( () => {
     const init = async () => {
-      const cache = new InMemoryCache();
+      const cache = new InMemoryCache( cacheConfig );
       const persistor = new CachePersistor( {
         cache,
         storage: new LocalStorageWrapper( window.localStorage ),
