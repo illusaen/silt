@@ -1,5 +1,5 @@
-import { text } from '@fortawesome/fontawesome-svg-core';
 import React, { useEffect, useRef, useState } from 'react';
+import { inputVar } from '../graphql';
 
 const useAutosizeTextarea = ( textAreaRef: HTMLTextAreaElement | null, value: string ) => useEffect( () => {
   if ( textAreaRef ) {
@@ -50,6 +50,7 @@ const handleSubmit = ( v: string ) => {
   const r = splitInputs( v );
   if ( r.length === 0 ) return;
 
+  inputVar( [ ...inputVar(), ...r ] );
   console.log( r );
 };
 

@@ -1,7 +1,7 @@
 import { makeVar } from '@apollo/client';
 
-export const inputVar = makeVar( [] );
-export const outputVar = makeVar( [] );
+export const inputVar = makeVar<string[]>( [] );
+export const outputVar = makeVar<string[]>( [] );
 
 export const cacheConfig = {
   typePolicies: {
