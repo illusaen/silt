@@ -1,4 +1,4 @@
-export { App, withApollo } from './App';
+export { App, withApollo, withRedux } from './App';
 export { Header, HeaderBarButton } from './Header';
 export { Input } from './Input';
 export { Loading } from './Loading';

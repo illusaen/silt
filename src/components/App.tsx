@@ -1,23 +1,20 @@
 import { ApolloClient, ApolloProvider, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
-import { CachePersistor, LocalStorageWrapper } from 'apollo3-cache-persist';
 import { ComponentType, useEffect, useState } from 'react';
 import { Header, Input, Output, Status, Sidebar, SidebarDialog, SideInfo, Loading } from './';
-import { cacheConfig } from '../graphql';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
 
-export const withApollo = ( Component: ComponentType, debug = false ) => () => {
+export const withRedux = ( Component: ComponentType ) => () => {
+  return <Provider store={ store }><Component/></Provider>
+};
+export const withApollo = ( Component: ComponentType ) => () => {
   const [ client, setClient ] = useState<ApolloClient<NormalizedCacheObject>>();
 
   useEffect( () => {
     const init = async () => {
-      const cache = new InMemoryCache( cacheConfig );
-      const persistor = new CachePersistor( {
-        cache,
-        storage: new LocalStorageWrapper( window.localStorage ),
-        trigger: 'write',
-        debug: debug,
-      } );
-      await persistor.restore();
-      setClient( new ApolloClient( { cache: cache, uri: 'http://localhost:4000/graphql' } ) );
+      setClient(
+        new ApolloClient( { cache: new InMemoryCache(), uri: 'http://localhost:4000/graphql' } )
+      );
     };
 
     init().catch( console.error );

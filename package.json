@@ -51,13 +51,14 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.15",
-    "apollo3-cache-persist": "^0.14.1",
+    "@reduxjs/toolkit": "^1.9.7",
     "electron-squirrel-startup": "^1.0.0",
     "electron-window-state": "^5.0.3",
     "framer-motion": "^10.13.1",
     "graphql": "^16.7.1",
     "inter-ui": "^3.19.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3"
   }
 }

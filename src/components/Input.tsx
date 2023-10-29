@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { inputVar } from '../graphql';
+import { useAppDispatch } from '../redux/hooks';
+import { add } from '../redux/inputSlice';
 
 const useAutosizeTextarea = ( textAreaRef: HTMLTextAreaElement | null, value: string ) => useEffect( () => {
   if ( textAreaRef ) {
@@ -26,39 +27,41 @@ const splitInputs = ( data: string ): string[] => {
   }, [] );
 };
 
-const handleKeyDown = (
-  value: string,
-  setValue: React.Dispatch<React.SetStateAction<string>>,
-  textareaRef: React.MutableRefObject<HTMLTextAreaElement>
-) => ( e: React.KeyboardEvent<HTMLTextAreaElement> ) => {
-  if ( e.key === 'Enter' && !e.shiftKey ) {
-    e.preventDefault();
-    handleSubmit( value );
-
-    textareaRef.current.select();
-    return;
-  }
-
-  if ( e.key === 'Escape' && !e.shiftKey ) {
-    e.preventDefault();
-    setValue( '' );
-  }
-};
-
-const handleSubmit = ( v: string ) => {
-  if ( !v ) return;
-  const r = splitInputs( v );
-  if ( r.length === 0 ) return;
-
-  inputVar( [ ...inputVar(), ...r ] );
-  console.log( r );
-};
-
 export const Input = () => {
   const [ value, setValue ] = useState( '' );
   const textareaRef = useRef<HTMLTextAreaElement>();
 
+  const dispatch = useAppDispatch();
   useAutosizeTextarea( textareaRef.current, value );
+
+  const handleKeyDown = (
+    value: string,
+    setValue: React.Dispatch<React.SetStateAction<string>>,
+    textareaRef: React.MutableRefObject<HTMLTextAreaElement>
+  ) => ( e: React.KeyboardEvent<HTMLTextAreaElement> ) => {
+    if ( e.key === 'Enter' && !e.shiftKey ) {
+      e.preventDefault();
+      handleSubmit( value );
+
+      textareaRef.current.select();
+      return;
+    }
+
+    if ( e.key === 'Escape' && !e.shiftKey ) {
+      e.preventDefault();
+      setValue( '' );
+    }
+  };
+
+  const handleSubmit = ( v: string ) => {
+    if ( !v ) return;
+    const r = splitInputs( v );
+    if ( r.length === 0 ) return;
+
+    dispatch( add( { command: v, timestamp: new Date().getTime() } ) );
+
+    console.log( r );
+  };
 
   return (
     <div className="rounded-md shadow-xl flex">
