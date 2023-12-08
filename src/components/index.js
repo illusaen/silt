@@ -1,10 +1,11 @@
 export { App, withApollo, withRedux } from './App';
 export { Header, HeaderBarButton } from './Header';
-export { Input } from './Input';
+export { Input } from './Input/Input';
 export { Loading } from './Loading';
 export { Map } from './Map';
-export { Output } from './Output';
+export { Output } from './Output/Output';
 export { Direction, ResourceType, Resource, ProgressCircle } from './Progress';
 export { Sidebar, SidebarDialog } from './Sidebar';
 export { SideInfo } from './SideInfo';
 export { Status } from './Status';
+export { Settings } from './Settings/Settings';
