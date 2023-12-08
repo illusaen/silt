@@ -1,6 +1,6 @@
 import { RootState } from '../../app/store';
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import crypto from 'crypto';
+import { v4 as uuidv4 } from 'uuid';
 
 export type SettingsState = SettingsPayload & {
   showTimestamp: boolean;
@@ -24,7 +24,7 @@ const defaultSetting: SettingsState = {
   echoInput: true,
   selectInputOnSubmit: true,
   isConnected: false,
-  id: crypto.randomUUID(),
+  id: uuidv4(),
 };
 
 const initialState: SettingsState[] = [];
