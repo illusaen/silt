@@ -12,13 +12,13 @@ const navigation = [
   { name: 'Apollo', href: 'http://localhost:4000', target: '_blank', icon: faDatabase },
 ];
 
-const profiles = [
-  { id: 1, name: 'Aardwolf', href: '#', initial: 'A', current: false },
-  { id: 2, name: 'Kallisti', href: '#', initial: 'K', current: true },
-  { id: 3, name: 'Lusternia', href: '#', initial: 'L', current: false },
-];
-
-const classNames = ( ...classes: string[] ) => classes.join( ' ' );
+// const profiles = [
+//   { id: 1, name: 'Aardwolf', href: '#', initial: 'A', current: false },
+//   { id: 2, name: 'Kallisti', href: '#', initial: 'K', current: true },
+//   { id: 3, name: 'Lusternia', href: '#', initial: 'L', current: false },
+// ];
+//
+// const classNames = ( ...classes: string[] ) => classes.join( ' ' );
 
 export const SidebarDialog = ( { sidebarOpen, sidebarHasClosed }: {
   sidebarOpen: boolean,
@@ -92,32 +92,32 @@ export const Sidebar = ( { isNarrow, sidebarHasOpened = null }: {
         </ul>
       </div>
 
-      <div className="flex-col grow">
-        { !isNarrow && <div className="text-xs px-2 pb-1">Open Profiles</div> }
-        <ul role="list">
-          { profiles.map( profile => (
-            <li key={ profile.name }>
-              <a
-                href={ profile.href }
-                className={ classNames(
-                  profile.current ? 'text-uiAccent' : 'hover:bg-blue',
-                  'group flex gap-x-3 rounded-md p-2 items-center my-0.5'
-                ) }
-              >
-                <span
-                  className={ classNames(
-                    profile.current ? ( isNarrow && 'bg-uiAccent/50' || 'bg-uiAccentDark' ) : '',
-                    'flex h-8 w-8 justify-center items-center rounded-lg border-2 text-[0.8rem]'
-                  ) }
-                >
-                  { profile.name[ 0 ] }
-                </span>
-                { !isNarrow && <span>{ profile.name }</span> }
-              </a>
-            </li>
-          ) ) }
-        </ul>
-      </div>
+      {/*<div className="flex-col grow">*/}
+      {/*  { !isNarrow && <div className="text-xs px-2 pb-1">Open Profiles</div> }*/}
+      {/*  <ul role="list">*/}
+      {/*    { profiles.map( profile => (*/}
+      {/*      <li key={ profile.name }>*/}
+      {/*        <a*/}
+      {/*          href={ profile.href }*/}
+      {/*          className={ classNames(*/}
+      {/*            profile.current ? 'text-uiAccent' : 'hover:bg-blue',*/}
+      {/*            'group flex gap-x-3 rounded-md p-2 items-center my-0.5'*/}
+      {/*          ) }*/}
+      {/*        >*/}
+      {/*          <span*/}
+      {/*            className={ classNames(*/}
+      {/*              profile.current ? ( isNarrow && 'bg-uiAccent/50' || 'bg-uiAccentDark' ) : '',*/}
+      {/*              'flex h-8 w-8 justify-center items-center rounded-lg border-2 text-[0.8rem]'*/}
+      {/*            ) }*/}
+      {/*          >*/}
+      {/*            { profile.name[ 0 ] }*/}
+      {/*          </span>*/}
+      {/*          { !isNarrow && <span>{ profile.name }</span> }*/}
+      {/*        </a>*/}
+      {/*      </li>*/}
+      {/*    ) ) }*/}
+      {/*  </ul>*/}
+      {/*</div>*/}
 
     </nav>
   );
