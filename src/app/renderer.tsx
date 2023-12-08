@@ -7,3 +7,4 @@ import { App, withApollo, withRedux } from '../components';
 const root = createRoot( document.getElementById( 'root' ) );
 const QueryableApp = withRedux( withApollo( App ) );
 root.render( <QueryableApp/> );
+

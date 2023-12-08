@@ -14,21 +14,21 @@ export interface OutputPayload {
 const initialState: OutputState[] = [];
 const convert = new Convert();
 
-export const outputsSlice = createSlice({
+export const outputsSlice = createSlice( {
   name: 'outputs',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<OutputPayload>) => {
-      state.push({
+    add: ( state, action: PayloadAction<OutputPayload> ) => {
+      state.push( {
         ...action.payload,
-        processed: convert.toHtml(action.payload.raw),
-      });
+        processed: convert.toHtml( action.payload.raw ),
+      } );
     }
   }
-});
+} );
 
 export const { add } = outputsSlice.actions;
 
-export const selectOutputs = (state: RootState) => state.outputs;
+export const selectOutputs = ( state: RootState ) => state.outputs;
 
 export default outputsSlice.reducer;

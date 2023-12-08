@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint src/**/*.ts[x]"
+    "lint": "eslint src/**/*.ts[x]",
+    "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}"
   },
   "keywords": [],
   "author": "illusaen",
@@ -37,6 +38,7 @@
     "node-loader": "^2.0.0",
     "postcss": "^8.4.27",
     "postcss-loader": "^7.3.3",
+    "prettier": "^3.1.0",
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.3",
     "ts-loader": "^9.4.4",
