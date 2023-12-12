@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 import { ComponentType, useEffect, useState } from 'react';
-import { Header, Input, Loading, Output, Sidebar, SidebarDialog, SideInfo, Status } from './';
+import { Header, Input, Loading, Output, Settings, Sidebar, SidebarDialog, SideInfo, Status } from './';
 import { Provider } from 'react-redux';
 import { store } from '../app/store';
 
@@ -34,6 +34,7 @@ export const App = () => {
       <div className="flex flex-row grow">
         <Sidebar isNarrow={ true } sidebarHasOpened={ sidebarHasOpened }/>
         <div className="flex flex-col grow m-4">
+          <Settings/>
           <Output/>
           <Status/>
           <Input/>
